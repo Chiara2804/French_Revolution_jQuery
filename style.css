@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Rajdhani:wght@300');
+* {
+    margin: 0;
+}
+
+* ::selection {
+    background-color: #2aa8e0;
+    color: #fff;
+}
+
+body {
+    color: #7c7c7c;
+    font: 100% 'Roboto', sans-serif;
+    line-height: 1.5;
+}
+
+.title {
+    margin: 0px;
+    width: 100%;
+    height: 100vh;
+    color: #d7e4ed;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Parisienne', cursive;
+    background-color: #2aa8e0;
+}
+
+
+/*Container*/
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .container {
+        max-width: 768px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        max-width: 480px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.container::after,
+.container::before {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+
+/*Timeline*/
+
+#timeline {
+    position: relative;
+    padding: 2em 0;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+#timeline::before {
+    /* this is the vertical line */
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 18px;
+    height: 100%;
+    width: 4px;
+    background: #d7e4ed;
+}
+
+@media only screen and (min-width: 1170px) {
+    #timeline {
+        margin-top: 3em;
+        margin-bottom: 3em;
+    }
+    #timeline::before {
+        left: 50%;
+        margin-left: -2px;
+    }
+}
+
+.timeline-block {
+    position: relative;
+    margin: 2em 0;
+}
+
+.timeline-block:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.timeline-block:first-child {
+    margin-top: 0;
+}
+
+.timeline-block:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-block .timeline-year.right strong,
+.timeline-block .timeline-year.left strong {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: -3px;
+}
+
+.timeline-block .timeline-year.right strong {
+    margin-left: 50px;
+}
+
+.timeline-block .timeline-year.left strong {
+    margin-left: -75px;
+}
+
+@media only screen and (min-width: 1170px) {
+    .timeline-block {
+        margin: 4em 0;
+    }
+    .timeline-block:first-child {
+        margin-top: 0;
+    }
+    .timeline-block:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 1169px) {
+    .timeline-block .timeline-year {
+        margin-left: 4px;
+    }
+    .timeline-block .timeline-year.right strong,
+    .timeline-block .timeline-year.left strong {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-top: 0px;
+    }
+    .timeline-block .timeline-year.left strong,
+    .timeline-block .timeline-year.right strong {
+        margin-left: -5px;
+        margin-top: -40px;
+        background: #fff;
+    }
+}
+
+.timeline-year {
+    background: #2aa8e0;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 2px rgba(0, 0, 0, 0.05);
+}
+
+@media only screen and (min-width: 1170px) {
+    .timeline-year {
+        width: 30px;
+        height: 30px;
+        left: 50%;
+        margin-left: -15px;
+        /* Force Hardware Acceleration in WebKit */
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+    }
+}
+
+.timeline-content {
+    position: relative;
+    margin-left: 60px;
+    background: #ebebeb;
+    border-radius: 0.25em;
+    padding: 1em;
+    box-shadow: 0 3px 0 #d7e4ed;
+}
+
+.timeline-content:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.timeline-content {
+    display: inline-block;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 100%;
+    height: 0;
+    width: 0;
+    border: 10px solid transparent;
+    border-right: 10px solid #ebebeb;
+}
+
+.timeline-content .percent {
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+.timeline-content h5 {
+    font-size: 1rem;
+    ;
+}
+
+@media only screen and (min-width: 1170px) {
+    .timeline-content {
+        margin-left: 0;
+        width: 45%;
+    }
+    .timeline-content::before {
+        top: 24px;
+        left: 100%;
+        border-color: transparent;
+        border-left-color: #ebebeb;
+    }
+    .timeline-block:nth-child(even) .timeline-content {
+        float: right;
+    }
+    .timeline-block:nth-child(even) .timeline-content::before {
+        top: 24px;
+        left: auto;
+        right: 100%;
+        border-color: transparent;
+        border-right-color: #ebebeb;
+    }
+}
+
+
+/* Data anime */
+
+[data-anime] {
+    opacity: 0;
+    transition: .3s;
+}
+
+[data-anime].animate {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+[data-anime-left] {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+    transition: .3s;
+}
+
+[data-anime-left].animate {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+[data-anime-right] {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0);
+    transition: .3s;
+}
+
+[data-anime-right].animate {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+
+/*stile delle barre di scorrimento*/
+
+html::-webkit-scrollbar {
+    width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgb(185, 185, 185);
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: rgb(133, 133, 133);
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:active {
+    background: rgb(100, 100, 100);
+    border-radius: 10px;
+}
+
+.copy {
+    height: 50px;
+    background-color: #7c7c7c;
+    color: #ebebeb;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 50px 0;
+}
+
+.anim {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anim-img {
+    height: 200px;
+    width: 200px;
+    margin-right: 450px;
+}
+
+.copy a {
+    color: #ebebeb;
+}
